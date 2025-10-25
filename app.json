@@ -13,9 +13,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.watermelon-db"
     },
     "android": {
       "edgeToEdgeEnabled": true,
@@ -38,7 +41,10 @@
             "extraPods": [
               {
                 "name": "simdjson",
-                "configurations": ["Debug", "Release"],
+                "configurations": [
+                  "Debug",
+                  "Release"
+                ],
                 "path": "../node_modules/@nozbe/simdjson",
                 "modular_headers": true
               }
