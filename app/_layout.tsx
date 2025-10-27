@@ -14,20 +14,22 @@ export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
-
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-      <DatabaseProvider database={database}>
-        <QueryProvider>
-          <RootNavigator />
-        </QueryProvider>
-      </DatabaseProvider>
-      <PortalHost />
-    </ThemeProvider>
+    <KeyboardProvider>
+      <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        <DatabaseProvider database={database}>
+          <QueryProvider>
+            <RootNavigator />
+          </QueryProvider>
+        </DatabaseProvider>
+        <PortalHost />
+      </ThemeProvider>
+    </KeyboardProvider>
   );
 }
 
